@@ -5,16 +5,16 @@
 //This component hadles the app template used on every page.
 import React, {PropTypes} from 'react';
 //import Header from './common/Header';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 
 class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
         <p>Header here...</p>
-
-        {this.props.children}//passing down children it receives as props
-      </div>                //react-router will be passing child components
+          {this.props.children}
+      </div>                 //'{this.props.children}' is passing down children it receives as props
+                             //react-router will be passing child components
     );                      //as properites onto our app components
   }
 }
@@ -30,4 +30,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default(App);

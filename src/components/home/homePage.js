@@ -9,11 +9,11 @@ class HomePage extends React.Component {
       <div className="jumbotron">
         <h1>Pluralsight Administration</h1>
         <p>React, Redux and React Router in ES6 for ultra-responsive web apps.</p>
-        //react router will handle the anchor tag "Link to='about'" which will
-        //then take you to the about page
         <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
       </div>
     );
+    //react router will handle the anchor tag "Link to='about'" which will
+    //then take you to the about page (in reference to line 12)
   }
 }
 
