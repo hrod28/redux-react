@@ -3,3 +3,8 @@
 //Presentation: neary all markup meaning that they shold not have logic inside,
 //presentation components receive functions and data that they need from a
 //container component, and rely on props to display UI
+
+/*eslint-disable import/default */
+import 'babel-polyfill';
+import React from 'react';
+import { render } from 'react-dom';
