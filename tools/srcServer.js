@@ -10,10 +10,15 @@ const port = 3000;
 const app = express();//create instance of express
 const compiler = webpack(config);//then call webpack as defined earlier
 
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
+
 
 //now to configure express
 app.use(require('webpack-dev-middleware')(compiler, {//we use middleware and pass it compiled web configuration
-    noInfo: true,//declaring that we do not want files printed on the command line
+  noInfo: true,//declaring that we do not want files printed on the command line
     publicPath: config.output.publicPath//pass it publicPath that we defined within the config file
 }));
 
