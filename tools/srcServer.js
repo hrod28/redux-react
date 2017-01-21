@@ -33,7 +33,7 @@ app.get('*', function(req, res){
 //this is where we start express
 app.listen(port, function(err){
   if (err) {
-      console.log(err);
+      //console.log(err);
   }
   else {
       open(`http://localhost:${port}`);//this line's purpose is to use the open package to open browser
