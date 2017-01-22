@@ -11,6 +11,7 @@ import {Route, IndexRoute} from 'react-router';
 import app from './components/app';
 import homePage from './components/home/homePage';
 import aboutPage from './components/about/aboutPage';
+import coursePage from './components/course/coursePage.js';
 
 export default(
       //by placing the reference to the app component below it is saying:
@@ -26,6 +27,7 @@ export default(
       //a child of the app component by react router.
     <Route path = "/" component = {app}>
       <IndexRoute component = {homePage} />
+      <Route path="course" component={coursePage} />
       <Route path ="about" component = {aboutPage} />
     </Route>
 );

@@ -7,7 +7,7 @@ import { Link, IndexLink} from 'react-router';
 // this header component gets referenced on the app.js file.  the Header component
 // is also imported on the app.js page
 const Header = ()=>{
-    return (
+     return (
 
       //using the indexLink component from react-router to handle this
       //index link that just has a slash and the 'activeClassName="active"'
@@ -16,9 +16,12 @@ const Header = ()=>{
       //the header
       <nav>
         <IndexLink to ="/" activeClassName="active">Home</IndexLink>
-          {" | "} // putting a pipe between the links to keep layout simple
+          {" | "}
+          <Link to= "/course" activeClassName="active">Courses</Link>
+          {" | "}
           <Link to= "/about" activeClassName="active">About</Link>
       </nav>
+      // putting a pipe between the links to keep layout simple
     );
 };
 
