@@ -8,52 +8,28 @@ import * as courseActions from '../../actions/courseActions';
 // *******I have question about the syntax of this * thing****
 
 import {bindActionCreators} from 'redux';
+import CourseList from './CourseList';
 
 class coursePage extends React.Component {
     constructor(props, context){
       super(props, context);
-                                      // this.state = {
-                                      //   course: { title: ""}
-                                      // };
+   }
 
-                                      //   // Best practice is to do your bindings in your constructor functions
-                                      //   // instead of putting inside of the render function and bind is a function
-                                      //   // so it becomes a performance issue
-                                      //   this.onTitleChange = this.onTitleChange.bind(this);
-                                      //   this.onClickSave = this.onClickSave.bind(this);
-}
-
-                                      // onTitleChange(event) {
-                                      //     const course = this.state.course;
-                                      //     course.title = event.target.value;
-                                      //     this.setState({course: course});
-                                      // }
-
-                                      // onClickSave(){
-                                      //   this.props.actions.createCourse(this.state.course);
-                                      // }
-
-     courseRow(course, index){
+    courseRow(course, index){
        return <div key={index}>{course.title}</div>;
      }
 
     render() {
+      const {courses} = this.props;
       return(
         //this displays the current list of courses and references courseRow funcition above
         <div>
           <h1> Courses:</h1>
-          {this.props.courses.map(this.courseRow)}
+          <CourseList courses={courses}/>
           </div>
         );
       }
     }
-                                      //   <h2> Add Course: </h2>
-                                      //   <input type= "text"
-                                      //          onChange={this.onTitleChange}
-                                      //          value={this.state.course.title} />
-                                      //   <input type = "submit"
-                                      //          value = "Save"
-                                      //          onClick = {this.onClickSave} />
 
 coursePage.propTypes = {
   //dispatch: PropTypes.func.isRequired,
