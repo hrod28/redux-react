@@ -38,6 +38,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
       store.dispatch(loadCourses());
       //store.dispatch(loadAuthors());
 
+      
       render(
         <Provider store={store}>
           <Router history={browserHistory} routes={routes} />
