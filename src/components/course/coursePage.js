@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 // *******I have question about the syntax of this * thing****
 
+import {bindActionCreators} from 'redux';
+
 class coursePage extends React.Component {
     constructor(props, context){
       super(props, context);
@@ -28,7 +30,7 @@ class coursePage extends React.Component {
     }
 
     onClickSave(){
-      this.props.createCourse(this.state.course);
+      this.props.actions.createCourse(this.state.course);
     }
 
      courseRow(course, index){
@@ -56,7 +58,7 @@ class coursePage extends React.Component {
 coursePage.propTypes = {
   //dispatch: PropTypes.func.isRequired,
   courses: PropTypes.array.isRequired,
-  createCourse: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 
 };
 
@@ -68,13 +70,14 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    createCourse: course => dispatch(courseActions.createCourse(course))
-  };
+    actions: bindActionCreators(courseActions, dispatch)
+  };//this function takes all the actions in courseActions and wraps them
+    //in a call to dispatch.
 }
 
 // the connect function is what allows our components to interract
 // with redux, or container components
-export default connect(mapStateToProps)(coursePage);//get a linter warning that dispatch is missing
+export default connect(mapStateToProps, mapDispatchToProps)(coursePage);//get a linter warning that dispatch is missing
 // here 'coursePage' is wrapped in a call to connect.
 // connect is a higher order component that is going
 // to wrap our courses page and takes 2 paramerers.  Each of these
