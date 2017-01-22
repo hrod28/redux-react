@@ -1,15 +1,24 @@
 'use strict';
 
 import * as types from './actionTypes';
+import courseApi from '../api/mockCourseApi';
 
-export function createCourse (course){
-  return { type: types.CREATE_COURSE, course};//then go to courseReducer
+
+export function loadCoursesSuccess(courses){
+  return { type: types.LOAD_COURSES_SUCCESS, courses};//then go to courseReducer
 }
 
 
 //  in this above function, the action is an object that has
 //  property of 'type', and type is required.
 
-// Reducers handle actions
-// It is a function that accepts a state in an action and then
-// returns a new state.
+//thunks
+export function loadCourses(){
+  return function(dispatch) {
+    return courseApi.getAllCourses().then(courses => {
+      dispatch(loadCoursesSuccess(courses));
+    }).catch(err =>{
+      throw(err);
+    });
+  };
+}

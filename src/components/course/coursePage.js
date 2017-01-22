@@ -12,26 +12,26 @@ import {bindActionCreators} from 'redux';
 class coursePage extends React.Component {
     constructor(props, context){
       super(props, context);
-      this.state = {
-        course: { title: ""}
-      };
+                                      // this.state = {
+                                      //   course: { title: ""}
+                                      // };
 
-      // Best practice is to do your bindings in your constructor functions
-      // instead of putting inside of the render function and bind is a function
-      // so it becomes a performance issue
-      this.onTitleChange = this.onTitleChange.bind(this);
-      this.onClickSave = this.onClickSave.bind(this);
-    }
+                                      //   // Best practice is to do your bindings in your constructor functions
+                                      //   // instead of putting inside of the render function and bind is a function
+                                      //   // so it becomes a performance issue
+                                      //   this.onTitleChange = this.onTitleChange.bind(this);
+                                      //   this.onClickSave = this.onClickSave.bind(this);
+}
 
-    onTitleChange(event) {
-        const course = this.state.course;
-        course.title = event.target.value;
-        this.setState({course: course});
-    }
+                                      // onTitleChange(event) {
+                                      //     const course = this.state.course;
+                                      //     course.title = event.target.value;
+                                      //     this.setState({course: course});
+                                      // }
 
-    onClickSave(){
-      this.props.actions.createCourse(this.state.course);
-    }
+                                      // onClickSave(){
+                                      //   this.props.actions.createCourse(this.state.course);
+                                      // }
 
      courseRow(course, index){
        return <div key={index}>{course.title}</div>;
@@ -43,17 +43,17 @@ class coursePage extends React.Component {
         <div>
           <h1> Courses:</h1>
           {this.props.courses.map(this.courseRow)}
-          <h2> Add Course: </h2>
-          <input type= "text"
-                 onChange={this.onTitleChange}
-                 value={this.state.course.title} />
-          <input type = "submit"
-                 value = "Save"
-                 onClick = {this.onClickSave} />
-        </div>
-      );
+          </div>
+        );
+      }
     }
-}
+                                      //   <h2> Add Course: </h2>
+                                      //   <input type= "text"
+                                      //          onChange={this.onTitleChange}
+                                      //          value={this.state.course.title} />
+                                      //   <input type = "submit"
+                                      //          value = "Save"
+                                      //          onClick = {this.onClickSave} />
 
 coursePage.propTypes = {
   //dispatch: PropTypes.func.isRequired,

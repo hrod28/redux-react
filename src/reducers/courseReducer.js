@@ -12,10 +12,9 @@ export default function courseReducer(state = [], action){
               // state.push(action.course);
               // return state;
       //but since state cannot be mutable, do it this way:
-        case types.CREATE_COURSE:
-          return [...state,
-              Object.assign({}, action.course)
-            ];
+        case types.LOAD_COURSES_SUCCESS:
+          return action.courses;
+              
     // the spread operator is returning a new instance of our state array.  then
     // we use Object.assign to create a deep copy of the course that was passed in
     // So now, these two values together (...state, object.assign) end up returning
