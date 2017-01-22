@@ -1,5 +1,6 @@
 'use strict';
 
+import * as types from '../actions/actionTypes';
 // Reducers handle actions
 // They are functions that accepts a state in an action and then
 // returns a new state.
@@ -11,7 +12,7 @@ export default function courseReducer(state = [], action){
               // state.push(action.course);
               // return state;
       //but since state cannot be mutable, do it this way:
-        case 'CREATE_COURSE':
+        case types.CREATE_COURSE:
           return [...state,
               Object.assign({}, action.course)
             ];
