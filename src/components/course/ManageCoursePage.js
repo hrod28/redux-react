@@ -10,25 +10,29 @@ import CourseForm from './CourseForm';
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
-  }
 
+    this.state ={
+      course: Object.assign({}, props.course),
+      errors: {}
+    };
+  }
 
   render() {
     return (
-      // <div>
-        <h1>Manage Course</h1>
-      //   <CourseForm
-      //       allAuthors={[]}
-      //       course={this.state.course}
-      //       errors={this.state.errors}
-      //       />
-      // </div>
+
+        <CourseForm
+          allAuthors={[]}
+          course={this.state.course}
+          errors={this.state.errors}
+        />
+
     );
   }
 }
 
 ManageCoursePage.propTypes = {
    course: PropTypes.object.isRequired
+
   // authors: PropTypes.array.isRequired,
   // actions: PropTypes.object.isRequired
 };
@@ -37,8 +41,7 @@ function mapStateToProps(state, ownProps) {
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
       return {
      course: course
-
-  };
+   };
 }
 
 function mapDispatchToProps(dispatch) {
