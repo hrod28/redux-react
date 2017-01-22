@@ -9,6 +9,9 @@ class coursePage extends React.Component {
         course: { title: ""}
       };
 
+      // Best practice is to do your bindings in your constructor functions
+      // instead of putting inside of the render function and bind is a function
+      // so it becomes a performance issue
       this.onTitleChange = this.onTitleChange.bind(this);
       this.onClickSave = this.onClickSave.bind(this);
     }
