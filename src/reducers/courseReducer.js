@@ -5,8 +5,8 @@
 // returns a new state.
 // a reducer takes two actions, one is state and the other is action because
 // what a reducer does is takes current state in an action and returns new state
-export default function courseReducer(action, state = []){
-    switch(action.type) {
+export default function courseReducer(state = [], action){
+    switch (action.type) {
       // although it may seem natural to do it like this:
               // state.push(action.course);
               // return state;

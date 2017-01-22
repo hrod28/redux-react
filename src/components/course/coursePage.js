@@ -31,15 +31,15 @@ class coursePage extends React.Component {
       this.props.dispatch(courseActions.createCourse(this.state.course));
     }
 
-    // courseRow(course, index){
-    //   return <div key={index}>{course.title}</div>;
-    // }
+     courseRow(course, index){
+       return <div key={index}>{course.title}</div>;
+     }
 
     render() {
       return(
+        //this displays the current list of courses and references courseRow funcition above
         <div>
           <h1> Courses:</h1>
-          //this displays the current list of courses and references courseRow funcition above
           {this.props.courses.map(this.courseRow)}
           <h2> Add Course: </h2>
           <input type= "text"

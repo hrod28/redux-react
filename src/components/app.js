@@ -5,7 +5,7 @@
 //This component hadles the app template used on every page.
 import React, {PropTypes} from 'react';
 import Header from './common/header';
-//import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
 class App extends React.Component {
   render() {
