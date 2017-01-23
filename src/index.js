@@ -20,6 +20,7 @@ import { Router, browserHistory } from 'react-router';//browserHistory takes car
                                                       //the hash tag on URLs
 import routes from './routes';//referecing the routes.js file
 import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
 import './styles/styles.css'; //Webpack can import CSS files, too!
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -36,9 +37,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
       const store = configureStore();
       store.dispatch(loadCourses());
-      //store.dispatch(loadAuthors());
+      store.dispatch(loadAuthors());
 
-      
+
       render(
         <Provider store={store}>
           <Router history={browserHistory} routes={routes} />
