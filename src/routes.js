@@ -28,7 +28,7 @@ export default(
       //a child of the app component by react router.
     <Route path = "/" component = {app}>
       <IndexRoute component = {homePage} />
-      <Route path="course" component={coursePage} />
+      <Route path="courses" component={coursePage} />
       <Route path ="course" component = {ManageCoursePage} />
       <Route path ="course/:id" component = {ManageCoursePage} />
       <Route path ="about" component = {aboutPage} />

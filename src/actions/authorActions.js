@@ -1,8 +1,8 @@
 'use strict';
 
-import AuthorApi from '../mockAuthorApi';
-import * as types from './ajaxStatusActions';
-import {beginAjaxCall} from './ajaxStatusActions';
+import AuthorApi from '../api/mockAuthorApi';
+import * as types from './actionTypes';
+//import {beginAjaxCall} from './ajaxStatusActions';
 
 export function loadAuthorsSuccess(authors) {
   return {type: types.LOAD_AUTHORS_SUCCESS, authors};
@@ -10,7 +10,7 @@ export function loadAuthorsSuccess(authors) {
 
 export function loadAuthors(){
   return dispatch => {
-    dispatch(beginAjaxCall());
+    //dispatch(beginAjaxCall());
     return AuthorApi.getAllAuthors().then(authors => {
       dispatch(loadAuthorsSuccess(authors));
     }).catch(err => {

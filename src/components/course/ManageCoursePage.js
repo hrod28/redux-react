@@ -21,7 +21,7 @@ class ManageCoursePage extends React.Component {
     return (
 
         <CourseForm
-          allAuthors={[]}
+          allAuthors={this.props.authors}
           course={this.state.course}
           errors={this.state.errors}
         />
@@ -31,19 +31,29 @@ class ManageCoursePage extends React.Component {
 }
 
 ManageCoursePage.propTypes = {
-   course: PropTypes.object.isRequired
-
-  // authors: PropTypes.array.isRequired,
+   course: PropTypes.object.isRequired,
+   authors: PropTypes.array.isRequired
   // actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
+
+  //this below function transforms the state
+  const authorsFormattedForDropdown = state.authors.map(author => {
+    return{
+      value: author.id,
+      text: author.firstName + ' ' + author.lastName
+    };
+  });
+
       return {
-     course: course
+     course: course,
+     authors: authorsFormattedForDropdown
    };
 }
 
+//this is where you should manipulate the data from api
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(courseActions, dispatch)
